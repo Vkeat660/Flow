@@ -16,7 +16,6 @@
 		F255432C1B2F607300E9B649 /* CollectionLayoutFlowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F255432B1B2F607300E9B649 /* CollectionLayoutFlowTests.m */; };
 		F2A74EB41B307EA50029516D /* FlowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EB31B307EA50029516D /* FlowCell.m */; };
 		F2A74EC01B30A4170029516D /* OneTwoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */; };
-		F2A74EC11B30A4170029516D /* OneTwoLayoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		F2A74EB31B307EA50029516D /* FlowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCell.m; sourceTree = "<group>"; };
 		F2A74EBC1B30A4170029516D /* OneTwoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoFlowLayout.h; sourceTree = "<group>"; };
 		F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoFlowLayout.m; sourceTree = "<group>"; };
-		F2A74EBE1B30A4170029516D /* OneTwoLayoutInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoLayoutInfo.h; sourceTree = "<group>"; };
-		F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoLayoutInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +133,6 @@
 			children = (
 				F2A74EBC1B30A4170029516D /* OneTwoFlowLayout.h */,
 				F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */,
-				F2A74EBE1B30A4170029516D /* OneTwoLayoutInfo.h */,
-				F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */,
 			);
 			path = OneTwoFlowLayout;
 			sourceTree = "<group>";
@@ -247,7 +242,6 @@
 				F25543151B2F607300E9B649 /* AppDelegate.m in Sources */,
 				F25543121B2F607300E9B649 /* main.m in Sources */,
 				F2A74EC01B30A4170029516D /* OneTwoFlowLayout.m in Sources */,
-				F2A74EC11B30A4170029516D /* OneTwoLayoutInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
