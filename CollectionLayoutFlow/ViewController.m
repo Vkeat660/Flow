@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "OneTwoFlowLayout.h"
 #import "FlowCell.h"
-#import "RiverCollectionViewLayout.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSIndexPath *currentVisibleItem;

@@ -15,7 +15,8 @@
 		F25543201B2F607300E9B649 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F255431E1B2F607300E9B649 /* LaunchScreen.xib */; };
 		F255432C1B2F607300E9B649 /* CollectionLayoutFlowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F255432B1B2F607300E9B649 /* CollectionLayoutFlowTests.m */; };
 		F2A74EB41B307EA50029516D /* FlowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EB31B307EA50029516D /* FlowCell.m */; };
-		F2DCD6B31B2F6234008D078E /* OneTwoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */; };
+		F2A74EC01B30A4170029516D /* OneTwoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */; };
+		F2A74EC11B30A4170029516D /* OneTwoLayoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,10 @@
 		F255432B1B2F607300E9B649 /* CollectionLayoutFlowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionLayoutFlowTests.m; sourceTree = "<group>"; };
 		F2A74EB21B307EA50029516D /* FlowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCell.h; sourceTree = "<group>"; };
 		F2A74EB31B307EA50029516D /* FlowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCell.m; sourceTree = "<group>"; };
-		F2DCD6B11B2F6234008D078E /* OneTwoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoFlowLayout.h; sourceTree = "<group>"; };
-		F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoFlowLayout.m; sourceTree = "<group>"; };
+		F2A74EBC1B30A4170029516D /* OneTwoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoFlowLayout.h; sourceTree = "<group>"; };
+		F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoFlowLayout.m; sourceTree = "<group>"; };
+		F2A74EBE1B30A4170029516D /* OneTwoLayoutInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoLayoutInfo.h; sourceTree = "<group>"; };
+		F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoLayoutInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 		F255430E1B2F607300E9B649 /* CollectionLayoutFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F2A74EBB1B30A3ED0029516D /* OneTwoFlowLayout */,
 				F25543131B2F607300E9B649 /* AppDelegate.h */,
 				F25543141B2F607300E9B649 /* AppDelegate.m */,
 				F25543161B2F607300E9B649 /* ViewController.h */,
@@ -95,8 +99,6 @@
 				F255431C1B2F607300E9B649 /* Images.xcassets */,
 				F255431E1B2F607300E9B649 /* LaunchScreen.xib */,
 				F255430F1B2F607300E9B649 /* Supporting Files */,
-				F2DCD6B11B2F6234008D078E /* OneTwoFlowLayout.h */,
-				F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */,
 				F2A74EB21B307EA50029516D /* FlowCell.h */,
 				F2A74EB31B307EA50029516D /* FlowCell.m */,
 			);
@@ -127,6 +129,17 @@
 				F255432A1B2F607300E9B649 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2A74EBB1B30A3ED0029516D /* OneTwoFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				F2A74EBC1B30A4170029516D /* OneTwoFlowLayout.h */,
+				F2A74EBD1B30A4170029516D /* OneTwoFlowLayout.m */,
+				F2A74EBE1B30A4170029516D /* OneTwoLayoutInfo.h */,
+				F2A74EBF1B30A4170029516D /* OneTwoLayoutInfo.m */,
+			);
+			path = OneTwoFlowLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +246,8 @@
 				F2A74EB41B307EA50029516D /* FlowCell.m in Sources */,
 				F25543151B2F607300E9B649 /* AppDelegate.m in Sources */,
 				F25543121B2F607300E9B649 /* main.m in Sources */,
-				F2DCD6B31B2F6234008D078E /* OneTwoFlowLayout.m in Sources */,
+				F2A74EC01B30A4170029516D /* OneTwoFlowLayout.m in Sources */,
+				F2A74EC11B30A4170029516D /* OneTwoLayoutInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

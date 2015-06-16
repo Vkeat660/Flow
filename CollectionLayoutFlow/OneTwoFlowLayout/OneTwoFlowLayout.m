@@ -7,12 +7,14 @@
 //
 
 #import "OneTwoFlowLayout.h"
+#import "OneTwoLayoutInfo.h"
+
+//NOTE: This class may not be available for multiple sections for now...
 
 static const CGFloat kCellRatio = 9.0/16.0;
 
 @interface OneTwoFlowLayout ()
-@property (nonatomic, strong) NSMutableArray *itemSizes;
-@property (nonatomic, assign) CGSize contentSize;
+@property (nonatomic, strong) NSMutableArray *itemsLayoutInfo;  //Array of one two layout info
 @end
 
 @implementation OneTwoFlowLayout
@@ -38,7 +40,7 @@ static const CGFloat kCellRatio = 9.0/16.0;
 
 
 - (void)initialize {
-    _itemSizes = [NSMutableArray array];
+    _itemsLayoutInfo = [NSMutableArray array];
 }
 
 
@@ -47,41 +49,29 @@ static const CGFloat kCellRatio = 9.0/16.0;
 - (void)prepareLayout {
     [super prepareLayout];
     
-    [_itemSizes removeAllObjects];
+    [_itemsLayoutInfo removeAllObjects];
     
-    NSInteger totalNumberOfItems = 0;
-    
-    for (int i = 0; i < [self.collectionView numberOfSections]; i++) {
-        totalNumberOfItems += [self.collectionView numberOfItemsInSection:i];
-    }
-    
-    if (totalNumberOfItems == 0) {
-        return;
-    }
-    
-    for (int i = 0; i < totalNumberOfItems; i++) {
-        if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+    for (int section = 0; section < [self.collectionView numberOfSections]; section++) {
+        for (int item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             
-            CGRect itemFrame = [self getRegularItemFrameForItemIndex:i];
-            [_itemSizes addObject:[NSValue valueWithCGRect:itemFrame]];
-            //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+            CGRect itemFrame = CGRectZero;
+            if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+                itemFrame = [self getRegularItemFrameForIndexPath:indexPath];
+                //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+                
+            } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+                itemFrame = [self getCompactItemFrameForIndexPath:indexPath];
+                //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+            }
             
-        } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
-            CGRect itemFrame = [self getCompactItemFrameForItemIndex:i];
-            [_itemSizes addObject:[NSValue valueWithCGRect:itemFrame]];
-            //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+            OneTwoLayoutInfo *layoutInfo = [[OneTwoLayoutInfo alloc] initWithIndexPath:indexPath frame:itemFrame];
+            [self.itemsLayoutInfo addObject:layoutInfo];
         }
     }
-    
-    if ([_itemSizes count] > 0) {
-        CGRect lastItemRect = [[self.itemSizes lastObject] CGRectValue];
-        self.contentSize = CGSizeMake(self.collectionView.frame.size.width, CGRectGetMaxY(lastItemRect));
-    }
-    
 }
 
 - (CGSize)collectionViewContentSize {
-    
     
     CGSize contentSize = CGSizeZero;
     
@@ -99,9 +89,9 @@ static const CGFloat kCellRatio = 9.0/16.0;
     
     NSMutableArray *layoutAttributes = [NSMutableArray array];
     
-    for (int i = 0; i < [self.itemSizes count]; i++) {
-        if (CGRectIntersectsRect(rect, [self.itemSizes[i] CGRectValue])) {
-            UICollectionViewLayoutAttributes * attributes = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+    for (OneTwoLayoutInfo *layoutInfo in self.itemsLayoutInfo) {
+        if (CGRectIntersectsRect(layoutInfo.frame, rect)) {
+            UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:layoutInfo.indexPath];
             [layoutAttributes addObject:attributes];
         }
     }
@@ -114,7 +104,15 @@ static const CGFloat kCellRatio = 9.0/16.0;
     
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-    attributes.frame = [self.itemSizes[indexPath.row] CGRectValue];
+    if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+        
+        attributes.frame = [self getRegularItemFrameForIndexPath:indexPath];
+        //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+        
+    } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+        attributes.frame = [self getCompactItemFrameForIndexPath:indexPath];
+        //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+    }
     
     return attributes;
 }
