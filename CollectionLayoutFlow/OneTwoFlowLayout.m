@@ -8,12 +8,80 @@
 
 #import "OneTwoFlowLayout.h"
 
+static const CGFloat kCellRatio = 9.0/16.0;
+
 @interface OneTwoFlowLayout ()
+@property (nonatomic, strong) NSMutableArray *itemSizes;
+@property (nonatomic, assign) CGSize contentSize;
 @end
 
 @implementation OneTwoFlowLayout
 
+#pragma mark - Initialization
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+
+- (void)initialize {
+    _itemSizes = [NSMutableArray array];
+}
+
+
+#pragma mark - Collection View Settings
+
+- (void)prepareLayout {
+    [super prepareLayout];
+    
+    [_itemSizes removeAllObjects];
+    
+    NSInteger totalNumberOfItems = 0;
+    
+    for (int i = 0; i < [self.collectionView numberOfSections]; i++) {
+        totalNumberOfItems += [self.collectionView numberOfItemsInSection:i];
+    }
+    
+    if (totalNumberOfItems == 0) {
+        return;
+    }
+    
+    for (int i = 0; i < totalNumberOfItems; i++) {
+        if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+            
+            CGRect itemFrame = [self getRegularItemFrameForItemIndex:i];
+            [_itemSizes addObject:[NSValue valueWithCGRect:itemFrame]];
+            //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+            
+        } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+            CGRect itemFrame = [self getCompactItemFrameForItemIndex:i];
+            [_itemSizes addObject:[NSValue valueWithCGRect:itemFrame]];
+            //NSLog(@"Index Row: %d, Attributes: %@", i, NSStringFromCGRect(itemFrame));
+        }
+    }
+    
+    if ([_itemSizes count] > 0) {
+        CGRect lastItemRect = [[self.itemSizes lastObject] CGRectValue];
+        self.contentSize = CGSizeMake(self.collectionView.frame.size.width, CGRectGetMaxY(lastItemRect));
+    }
+    
+}
+
 - (CGSize)collectionViewContentSize {
+    
     
     CGSize contentSize = CGSizeZero;
     
@@ -23,21 +91,22 @@
     } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
         contentSize = [self getCompactContentSize];
     }
-    
     return contentSize;
 }
 
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    NSArray* attributesToReturn = [super layoutAttributesForElementsInRect:rect];
-    for (UICollectionViewLayoutAttributes* attributes in attributesToReturn) {
-        if (attributes.representedElementKind == nil) {
-            NSIndexPath* indexPath = attributes.indexPath;
-            attributes.frame = [self layoutAttributesForItemAtIndexPath:indexPath].frame;
-        //NSLog(@"Attribute frame: %@", NSStringFromCGRect(attributes.frame));
+    
+    NSMutableArray *layoutAttributes = [NSMutableArray array];
+    
+    for (int i = 0; i < [self.itemSizes count]; i++) {
+        if (CGRectIntersectsRect(rect, [self.itemSizes[i] CGRectValue])) {
+            UICollectionViewLayoutAttributes * attributes = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+            [layoutAttributes addObject:attributes];
         }
     }
-    return attributesToReturn;
+    
+    return layoutAttributes;
 }
 
 
@@ -45,18 +114,7 @@
     
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-    //NSLog(@"Trait class: %d", self.collectionView.traitCollection.horizontalSizeClass);
-    
-    if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
-        
-        attributes.frame = [self getRegularItemFrameForIndexPath:indexPath];
-        //NSLog(@"Index Row: %ld, Attributes: %@", (long)indexPath.row, NSStringFromCGRect(attributes.frame));
-        
-    } else if (self.collectionView.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
-        attributes.frame = [self getCompactItemFrameForIndexPath:indexPath];
-        //NSLog(@"Index Row: %ld, Attributes: %@", (long)indexPath.row, NSStringFromCGRect(attributes.frame));
-    }
-    
+    attributes.frame = [self.itemSizes[indexPath.row] CGRectValue];
     
     return attributes;
 }
@@ -74,6 +132,11 @@
 #pragma mark - Item Frame Methods
 
 - (CGRect)getRegularItemFrameForIndexPath:(NSIndexPath *)indexPath {
+    return [self getRegularItemFrameForItemIndex:indexPath.row];
+}
+
+
+- (CGRect)getRegularItemFrameForItemIndex:(NSInteger)itemIndex {
     
     CGFloat collectionViewHeight = self.collectionView.frame.size.height;
     CGFloat collectionViewWidth = self.collectionView.frame.size.width;
@@ -86,18 +149,18 @@
     
     // 0, 3, 4 has offset 0
     CGFloat xOffset = 0;
-    if (indexPath.row % 6 == 1 || indexPath.row % 6 == 2) {
+    if (itemIndex % 6 == 1 || itemIndex % 6 == 2) {
         xOffset = largeItemWidth;
-    } else if (indexPath.row % 6 == 5) {
+    } else if (itemIndex % 6 == 5) {
         xOffset = smallItemWidth;
     }
     
     //In each 3 items group, both 1st and 2nd object start with the last set's height, but the 3rd one will add a small item height to it.
-    CGFloat yOffsetAddition = (indexPath.row % 6 == 2 || indexPath.row % 6 == 4) ? smallItemHeight : 0;
-    CGFloat yOffset = (indexPath.row / 3) * largeItemHeight + yOffsetAddition;
+    CGFloat yOffsetAddition = (itemIndex % 6 == 2 || itemIndex % 6 == 4) ? smallItemHeight : 0;
+    CGFloat yOffset = (itemIndex / 3) * largeItemHeight + yOffsetAddition;
     
     //Every 0th and 5th item is big item...
-    BOOL isBigItem = (indexPath.row % 6 == 0 || indexPath.row % 6 == 5);
+    BOOL isBigItem = (itemIndex % 6 == 0 || itemIndex % 6 == 5);
     CGFloat itemWidth = isBigItem ? largeItemWidth : smallItemWidth;
     CGFloat itemHeight = isBigItem ? largeItemHeight : smallItemHeight;
     
@@ -106,12 +169,18 @@
 
 
 - (CGRect)getCompactItemFrameForIndexPath:(NSIndexPath *)indexPath {
+    return [self getCompactItemFrameForItemIndex:indexPath.row];
+}
+
+
+- (CGRect)getCompactItemFrameForItemIndex:(NSInteger)itemIndex {
+    
     CGFloat collectionViewWidth = self.collectionView.frame.size.width;
     
     CGFloat itemWidth = collectionViewWidth;
-    CGFloat itemHeight = collectionViewWidth * 3/4;
+    CGFloat itemHeight = collectionViewWidth * kCellRatio;
     CGFloat xOffset = 0;
-    CGFloat yOffset = indexPath.row * itemHeight;
+    CGFloat yOffset = itemIndex * itemHeight;
     
     return CGRectMake(xOffset, yOffset, itemWidth, itemHeight);
 }
@@ -165,9 +234,24 @@
     
     CGFloat collectionViewWidth = self.collectionView.frame.size.width;
     
-    CGFloat itemHeight = collectionViewWidth * 3/4;
+    CGFloat itemHeight = collectionViewWidth * kCellRatio;
+    CGFloat fullHeight = itemHeight * totalNumberOfItems;
     
-    return CGSizeMake(collectionViewWidth, itemHeight * totalNumberOfItems);
+    //NSLog(@"Number of items: %ld - Total: %f", totalNumberOfItems, fullHeight);
+    
+    return CGSizeMake(collectionViewWidth, fullHeight);
+}
+
+
+- (NSInteger)totalItems {
+    
+    NSInteger totalNumberOfItems = 0;
+    
+    for (int i = 0; i < [self.collectionView numberOfSections]; i++) {
+        totalNumberOfItems =  [self.collectionView numberOfItemsInSection:i];
+    }
+    
+    return totalNumberOfItems;
 }
 
 

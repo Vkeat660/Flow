@@ -14,6 +14,7 @@
 		F255431D1B2F607300E9B649 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F255431C1B2F607300E9B649 /* Images.xcassets */; };
 		F25543201B2F607300E9B649 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F255431E1B2F607300E9B649 /* LaunchScreen.xib */; };
 		F255432C1B2F607300E9B649 /* CollectionLayoutFlowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F255432B1B2F607300E9B649 /* CollectionLayoutFlowTests.m */; };
+		F2A74EB41B307EA50029516D /* FlowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A74EB31B307EA50029516D /* FlowCell.m */; };
 		F2DCD6B31B2F6234008D078E /* OneTwoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		F25543251B2F607300E9B649 /* CollectionLayoutFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionLayoutFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F255432A1B2F607300E9B649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F255432B1B2F607300E9B649 /* CollectionLayoutFlowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionLayoutFlowTests.m; sourceTree = "<group>"; };
+		F2A74EB21B307EA50029516D /* FlowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCell.h; sourceTree = "<group>"; };
+		F2A74EB31B307EA50029516D /* FlowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCell.m; sourceTree = "<group>"; };
 		F2DCD6B11B2F6234008D078E /* OneTwoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTwoFlowLayout.h; sourceTree = "<group>"; };
 		F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTwoFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +97,8 @@
 				F255430F1B2F607300E9B649 /* Supporting Files */,
 				F2DCD6B11B2F6234008D078E /* OneTwoFlowLayout.h */,
 				F2DCD6B21B2F6234008D078E /* OneTwoFlowLayout.m */,
+				F2A74EB21B307EA50029516D /* FlowCell.h */,
+				F2A74EB31B307EA50029516D /* FlowCell.m */,
 			);
 			path = CollectionLayoutFlow;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25543181B2F607300E9B649 /* ViewController.m in Sources */,
+				F2A74EB41B307EA50029516D /* FlowCell.m in Sources */,
 				F25543151B2F607300E9B649 /* AppDelegate.m in Sources */,
 				F25543121B2F607300E9B649 /* main.m in Sources */,
 				F2DCD6B31B2F6234008D078E /* OneTwoFlowLayout.m in Sources */,

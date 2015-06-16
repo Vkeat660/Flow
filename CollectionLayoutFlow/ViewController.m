@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "OneTwoFlowLayout.h"
+#import "FlowCell.h"
+#import "RiverCollectionViewLayout.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSIndexPath *currentVisibleItem;
@@ -21,6 +23,7 @@
     [super viewDidLoad];
     
     _colorArray = @[[UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor cyanColor], [UIColor blueColor]];
+    self.collectionView.collectionViewLayout = [OneTwoFlowLayout new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,23 +32,19 @@
 }
 
 
-#pragma mark - Collection Delegate
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomCell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UICollectionViewCell alloc] initWithFrame:CGRectZero];
-    }
+    FlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FlowCell" forIndexPath:indexPath];
     cell.contentView.backgroundColor = self.colorArray[indexPath.row % 6];
-    NSLog(@"Index path: %d - %d", indexPath.row, indexPath.section);
+    [cell configureWithInt:indexPath.item];
+    //NSLog(@"Index path: %d - %d", indexPath.row, indexPath.section);
     return cell;
 }
 
