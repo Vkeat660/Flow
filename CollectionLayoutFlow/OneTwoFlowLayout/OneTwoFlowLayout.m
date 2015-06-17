@@ -142,8 +142,8 @@ static const CGFloat kCellRatio = 9.0/16.0;
     CGFloat collectionViewHeight = self.collectionView.frame.size.height;
     CGFloat collectionViewWidth = self.collectionView.frame.size.width;
     
-    CGFloat largeItemWidth = collectionViewWidth*2/3;   //2/3 of the width;
-    CGFloat smallItemWidth = collectionViewWidth/3;     //1/3 of the width;
+    CGFloat largeItemWidth = ceil(collectionViewWidth*2/3);   //2/3 of the width;
+    CGFloat smallItemWidth = floor(collectionViewWidth/3);     //1/3 of the width;
     
     CGFloat largeItemHeight = collectionViewHeight/2;   //1/2 of the height;
     CGFloat smallItemHeight = collectionViewHeight/4;   //1/4 of the height;

@@ -27,7 +27,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qpZ-KG-dQc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S1F-Rb-hdk">
-                                    <size key="itemSize" width="526" height="362"/>
+                                    <size key="itemSize" width="558" height="380"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -37,33 +37,44 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="526" height="362"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="girl code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
-                                                    <rect key="frame" x="40" y="0.0" width="430.5" height="98.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="98"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="girl code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
+                                                    <rect key="frame" x="14" y="309" width="358" height="45"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="45"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="watch a sneak peak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
-                                                    <rect key="frame" x="40" y="260" width="310.5" height="72"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="72"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="watch a sneak peak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
+                                                    <rect key="frame" x="14" y="354" width="358" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="22"/>
+                                                    <color key="textColor" red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.78632813690000014" green="0.5" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="top" secondItem="Lcn-fm-EEp" secondAttribute="bottom" id="7hb-Bv-mO5"/>
+                                            <constraint firstItem="Lcn-fm-EEp" firstAttribute="leading" secondItem="wRw-qD-cZk" secondAttribute="leading" id="E2A-iM-xWf"/>
+                                            <constraint firstAttribute="centerXWithinMargins" secondItem="Lcn-fm-EEp" secondAttribute="trailing" multiplier="3:4" id="K1z-aD-sIc"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="wRw-qD-cZk" secondAttribute="bottom" id="KT5-TH-RWJ"/>
+                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="top" secondItem="Lcn-fm-EEp" secondAttribute="bottom" id="WPM-jo-aIE"/>
                                             <constraint firstAttribute="centerXWithinMargins" secondItem="wRw-qD-cZk" secondAttribute="trailing" multiplier="3:4" id="aCY-fS-tBt"/>
-                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="leading" secondItem="70e-zh-jnZ" secondAttribute="leadingMargin" constant="32" id="oK2-3b-zx4"/>
-                                            <constraint firstItem="Lcn-fm-EEp" firstAttribute="leading" secondItem="70e-zh-jnZ" secondAttribute="leadingMargin" constant="32" id="q0M-fE-bCu"/>
-                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="bottom" secondItem="70e-zh-jnZ" secondAttribute="bottomMargin" constant="-22" id="vuf-8d-Eam"/>
+                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="leading" secondItem="70e-zh-jnZ" secondAttribute="centerXWithinMargins" multiplier="1:20" id="qIH-0u-eXC"/>
+                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="bottom" secondItem="70e-zh-jnZ" secondAttribute="bottomMargin" id="vQv-H5-aa4"/>
                                         </constraints>
-                                        <size key="customSize" width="526" height="362"/>
+                                        <size key="customSize" width="558" height="380"/>
                                         <connections>
+                                            <outlet property="descriptionLabel" destination="wRw-qD-cZk" id="CCf-q2-Nka"/>
                                             <outlet property="itemLabel" destination="Lcn-fm-EEp" id="8wm-jE-Ahf"/>
                                         </connections>
                                     </collectionViewCell>

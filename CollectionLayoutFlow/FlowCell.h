@@ -10,5 +10,6 @@
 
 @interface FlowCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UILabel *itemLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 - (void)configureWithInt:(NSInteger)value;
 @end
