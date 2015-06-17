@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EE55B731B31C47400A12B22 /* HelveticaNeueLTStd-Hv.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EE55B721B31C47400A12B22 /* HelveticaNeueLTStd-Hv.otf */; };
 		F25543121B2F607300E9B649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F25543111B2F607300E9B649 /* main.m */; };
 		F25543151B2F607300E9B649 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F25543141B2F607300E9B649 /* AppDelegate.m */; };
 		F25543181B2F607300E9B649 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25543171B2F607300E9B649 /* ViewController.m */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EE55B721B31C47400A12B22 /* HelveticaNeueLTStd-Hv.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTStd-Hv.otf"; sourceTree = "<group>"; };
 		F255430C1B2F607300E9B649 /* CollectionLayoutFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionLayoutFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25543101B2F607300E9B649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F25543111B2F607300E9B649 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				F25543191B2F607300E9B649 /* Main.storyboard */,
 				F255431C1B2F607300E9B649 /* Images.xcassets */,
 				F255431E1B2F607300E9B649 /* LaunchScreen.xib */,
+				3EE55B721B31C47400A12B22 /* HelveticaNeueLTStd-Hv.otf */,
 				F255430F1B2F607300E9B649 /* Supporting Files */,
 				F2A74EB21B307EA50029516D /* FlowCell.h */,
 				F2A74EB31B307EA50029516D /* FlowCell.m */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE55B731B31C47400A12B22 /* HelveticaNeueLTStd-Hv.otf in Resources */,
 				F255431B1B2F607300E9B649 /* Main.storyboard in Resources */,
 				F25543201B2F607300E9B649 /* LaunchScreen.xib in Resources */,
 				F255431D1B2F607300E9B649 /* Images.xcassets in Resources */,
