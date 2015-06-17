@@ -145,8 +145,8 @@ static const CGFloat kCellRatio = 9.0/16.0;
     CGFloat largeItemWidth = ceil(collectionViewWidth*2/3);   //2/3 of the width;
     CGFloat smallItemWidth = floor(collectionViewWidth/3);     //1/3 of the width;
     
-    CGFloat largeItemHeight = collectionViewHeight/2;   //1/2 of the height;
-    CGFloat smallItemHeight = collectionViewHeight/4;   //1/4 of the height;
+    CGFloat largeItemHeight = ceil(collectionViewHeight/2);   //1/2 of the height;
+    CGFloat smallItemHeight = ceil(collectionViewHeight/4);   //1/4 of the height;
     
     // 0, 3, 4 has offset 0
     CGFloat xOffset = 0;
@@ -181,7 +181,7 @@ static const CGFloat kCellRatio = 9.0/16.0;
     CGFloat collectionViewWidth = self.collectionView.frame.size.width;
     
     CGFloat itemWidth = collectionViewWidth;
-    CGFloat itemHeight = collectionViewWidth * kCellRatio;
+    CGFloat itemHeight = ceil(collectionViewWidth * kCellRatio);
     CGFloat xOffset = 0;
     CGFloat yOffset = itemIndex * itemHeight;
     
