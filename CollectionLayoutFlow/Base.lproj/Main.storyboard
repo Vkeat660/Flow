@@ -41,7 +41,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="558" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="girl code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="item label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
                                                     <rect key="frame" x="28" y="305" width="344" height="45"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="45"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +50,7 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="watch a sneak peak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="long text description of content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
                                                     <rect key="frame" x="28" y="350" width="344" height="22"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="22"/>
                                                     <color key="textColor" red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,8 +62,8 @@
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="760" verticalHuggingPriority="760" translatesAutoresizingMaskIntoConstraints="NO" id="ICa-f3-Ljs">
                                                     <rect key="frame" x="14" y="236" width="268" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="32" text="premieres tonight 10/9c" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mII-SO-CKa">
-                                                            <rect key="frame" x="14" y="16" width="240" height="32"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="32" text="optional snipe label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mII-SO-CKa">
+                                                            <rect key="frame" x="14" y="19.5" width="240" height="32"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="centerX" secondItem="mII-SO-CKa" secondAttribute="centerX" id="E3a-rk-pru"/>
-                                                        <constraint firstAttribute="centerY" secondItem="mII-SO-CKa" secondAttribute="centerY" id="hlT-kv-fPW"/>
+                                                        <constraint firstAttribute="centerYWithinMargins" secondItem="mII-SO-CKa" secondAttribute="centerYWithinMargins" multiplier="0.9" id="hlT-kv-fPW"/>
                                                         <constraint firstItem="mII-SO-CKa" firstAttribute="height" secondItem="ICa-f3-Ljs" secondAttribute="height" multiplier="0.5" id="qrz-Nd-LSj"/>
                                                     </constraints>
                                                 </view>
@@ -97,6 +97,8 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="wRw-qD-cZk" id="CCf-q2-Nka"/>
                                             <outlet property="itemLabel" destination="Lcn-fm-EEp" id="8wm-jE-Ahf"/>
+                                            <outlet property="snipeLabel" destination="mII-SO-CKa" id="Pgb-CF-aLz"/>
+                                            <outlet property="snipeView" destination="ICa-f3-Ljs" id="ucK-Nu-WPY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
