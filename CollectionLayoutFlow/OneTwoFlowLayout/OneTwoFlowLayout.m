@@ -165,6 +165,7 @@ static const CGFloat kCellRatio = 9.0/16.0;
     CGFloat itemWidth = isBigItem ? largeItemWidth : smallItemWidth;
     CGFloat itemHeight = isBigItem ? largeItemHeight : smallItemHeight;
     
+    
     return CGRectMake(xOffset, yOffset, itemWidth, itemHeight);
 }
 

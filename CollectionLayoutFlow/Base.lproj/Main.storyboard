@@ -40,8 +40,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="558" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="girl code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
-                                                    <rect key="frame" x="14" y="309" width="358" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="girl code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-fm-EEp">
+                                                    <rect key="frame" x="28" y="305" width="344" height="45"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="45"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -49,8 +49,8 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="watch a sneak peak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
-                                                    <rect key="frame" x="14" y="354" width="358" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="watch a sneak peak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRw-qD-cZk">
+                                                    <rect key="frame" x="28" y="350" width="344" height="22"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeueLTStd-Hv" family="Helvetica Neue LT Std" pointSize="22"/>
                                                     <color key="textColor" red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="wRw-qD-cZk" secondAttribute="bottom" id="KT5-TH-RWJ"/>
                                             <constraint firstItem="wRw-qD-cZk" firstAttribute="top" secondItem="Lcn-fm-EEp" secondAttribute="bottom" id="WPM-jo-aIE"/>
                                             <constraint firstAttribute="centerXWithinMargins" secondItem="wRw-qD-cZk" secondAttribute="trailing" multiplier="3:4" id="aCY-fS-tBt"/>
-                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="leading" secondItem="70e-zh-jnZ" secondAttribute="centerXWithinMargins" multiplier="1:20" id="qIH-0u-eXC"/>
+                                            <constraint firstItem="wRw-qD-cZk" firstAttribute="leading" secondItem="70e-zh-jnZ" secondAttribute="centerXWithinMargins" multiplier="1:10" id="qIH-0u-eXC"/>
                                             <constraint firstItem="wRw-qD-cZk" firstAttribute="bottom" secondItem="70e-zh-jnZ" secondAttribute="bottomMargin" id="vQv-H5-aa4"/>
                                         </constraints>
                                         <size key="customSize" width="558" height="380"/>
