@@ -41,7 +41,7 @@
             self.descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:18.0];
             self.snipeLabel.font       = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:15.0];
             
-        } else if(self.frame.size.width > 200) {
+        } else if(self.frame.size.width > 250) {
             
             // small portrait iPad cells, not used
             self.itemLabel.font        = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:20.0];
@@ -53,7 +53,7 @@
             // iPhone 6+ rotated cell, not used
             self.itemLabel.font        = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:15.0];
             self.descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:12.0];
-            self.snipeLabel.font       = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:10.0];
+            self.snipeLabel.font       = [UIFont fontWithName:@"HelveticaNeueLTStd-Hv" size:8.0];
                 
 
         }
@@ -68,12 +68,6 @@
         
     }
     
-}
-
-- (void)configureWithInt:(NSInteger)value {
-    self.itemLabel.text = @"girl code";
-    self.descriptionLabel.text = @"watch a sneak peak";
-    self.snipeLabel.text = @"premieres tonight 10/9c";
 }
 
 @end

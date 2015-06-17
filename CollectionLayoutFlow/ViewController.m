@@ -42,8 +42,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FlowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FlowCell" forIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor colorWithHue:((indexPath.row + 10) % 20) * .05 saturation:.8 brightness:.8 alpha:1.0];
-    [cell configureWithInt:indexPath.item];
-    //NSLog(@"Index path: %d - %d", indexPath.row, indexPath.section);
+    
+    cell.itemLabel.text = @"girl code";
+    cell.descriptionLabel.text = @"watch a sneak peak";
+    cell.snipeLabel.text = @"premieres tonight 10/9c";
+    
     return cell;
 }
 
